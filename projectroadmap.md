@@ -10,7 +10,7 @@
 - [x] Turn in Sprint #1 on D2L
 
 ## Sprint 2: 
-- [] Create a .py file for code
+- [x] Create a .py file for code
 - [] Make small updates and add commit messages through GitHub Desktop
 - [] Committed at least 6 code changes of significant size with explanation given
 - [] Track progress on planned and emerging tasks in the projectroadmap.md document
