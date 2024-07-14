@@ -7,7 +7,7 @@
 - [x] Make a ReadME file explaining the project
 - [x] Create this project roadmap on GitHub
 - [x] Explore atleast one existing Python code
-- [] Turn in Sprint #1 on D2L
+- [x] Turn in Sprint #1 on D2L
 
 ## Sprint 2: 
 - [] Create a .py file for code
