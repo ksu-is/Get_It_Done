@@ -60,11 +60,11 @@ if __name__ == "__main__":
 
     choice = input("Enter your choice: ")
 
-    if (choice == "1"):
+    if (choice=="1"):
       addTask()
-    elif (choice == "2"):
+    elif (choice=="2"):
       deleteTask()
-    elif (choice == "3"):
+    elif (choice=="3"):
       listTasks()
      elif(choice=="4"):
       prioritizeTask()
