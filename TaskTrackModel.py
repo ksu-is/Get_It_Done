@@ -3,8 +3,9 @@ tasks = []
 
 def addTask():
   task = input("Please enter a task: ")
-  tasks.append(task)
-  print(f"Task '{task}' added to the list.")
+  priority = input("Please enter a priority (1 for high, 2 for medium, 3 for low): ")
+  tasks.append((task, priority))
+  print(f"Task '{task}' with priority {priority} added to the list.")
 
 
 def listTasks():
@@ -12,8 +13,8 @@ def listTasks():
     print("There are no tasks currently.")
   else:
     print("Current Tasks:")
-    for index, task in enumerate(tasks):
-      print(f"Task #{index}. {task}")
+    for index, (task, priority) in enumerate(tasks):
+      print(f"Task #{index}. {task} (Priority: {priority})")
 
 
 def deleteTask():
@@ -28,6 +29,21 @@ def deleteTask():
   except:
     print("Invalid input.")
 
+
+def prioritizeTask():
+    listTasks()
+    try:
+        taskToPrioritize = int(input("Enter the number of the task to prioritize: "))
+        if taskToPrioritize >=0 and taskToPrioritize < len(tasks):
+            new_priority = input("Enter new priority (1 for high, 2 for medium, 3 for low): ")
+            task, _ = tasks[taskToPrioritize]
+            tasks[taskToPrioritize] = (task, new_priority)
+            print(f"Task #{taskToPrioritize} priority updated to {new_priority}.")
+        else:
+            print(f"Task #{taskToPrioritize} was not found")    
+    except: 
+        print("Inavlid input.")
+      
 
 if __name__ == "__main__":
   ### Create a loop to run the app
