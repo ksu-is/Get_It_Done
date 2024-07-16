@@ -50,9 +50,11 @@ if __name__ == "__main__":
       deleteTask()
     elif (choice == "3"):
       listTasks()
-    elif (choice == "4"):
-      break
+     elif(choice=="4"):
+      prioritizeTask()
+     elif(choice=="5"):
+         break
     else:
       print("Invalid input. Please try again.")
 
-  print("Goodbye 👋👋")
+  print("Goodbye! :)")
