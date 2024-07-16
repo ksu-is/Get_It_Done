@@ -8,6 +8,19 @@ def addTask():
   print(f"Task '{task}' with priority {priority} added to the list.")
 
 
+def deleteTask():
+  listTasks()
+  try:
+    taskToDelete = int(input("Enter the # to delete: "))
+    if taskToDelete >= 0 and taskToDelete < len(tasks):
+      tasks.pop(taskToDelete)
+      print(f"Task {taskToDelete} has been removed.")
+    else:
+      print(f"Task #{taskToDelete} was not found.")
+  except:
+    print("Invalid input.")
+
+
 def listTasks():
   if not tasks:
     print("There are no tasks currently.")
@@ -47,7 +60,7 @@ def prioritizeTask():
 
 if __name__ == "__main__":
   ### Create a loop to run the app
-  print("Welcome to the to do list app :)")
+  print("Welcome to the TaskTrack App! :)")
   while True:
     print("\n")
     print("Please select one of the following options")
