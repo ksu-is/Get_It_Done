@@ -39,7 +39,8 @@ if __name__ == "__main__":
     print("1. Add a new task")
     print("2. Delete a task")
     print("3. List tasks")
-    print("4. Quit")
+    print("4. Prioritize task(s)")
+    print("5. Quit")
 
     choice = input("Enter your choice: ")
 
