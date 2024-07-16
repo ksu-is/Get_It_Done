@@ -14,10 +14,10 @@
 - [x] Make small updates and add commit messages through GitHub Desktop
 - [x] Committed at least 6 code changes of significant size with explanation given
 - [x] Track progress on planned and emerging tasks in the projectroadmap.md document
-- [] Turn in Sprint #2 on D2L
+- [x] Turn in Sprint #2 on D2L
 
 ## Sprint 3:
-- [] Further coding, refining, and testing
+- [x] Further coding, refining, and testing
 - [] Create one slide PowerPoint introducing your project
 - [] Upload the PowerPoint slide on D2L and GitHub
 
