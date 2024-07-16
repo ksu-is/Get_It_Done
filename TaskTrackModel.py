@@ -30,19 +30,6 @@ def listTasks():
       print(f"Task #{index}. {task} (Priority: {priority})")
 
 
-def deleteTask():
-  listTasks()
-  try:
-    taskToDelete = int(input("Enter the # to delete: "))
-    if taskToDelete >= 0 and taskToDelete < len(tasks):
-      tasks.pop(taskToDelete)
-      print(f"Task {taskToDelete} has been removed.")
-    else:
-      print(f"Task #{taskToDelete} was not found.")
-  except:
-    print("Invalid input.")
-
-
 def prioritizeTask():
     listTasks()
     try:
