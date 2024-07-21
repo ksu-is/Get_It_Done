@@ -48,7 +48,7 @@ def prioritizeTask():
         
 if __name__ == "__main__":
     ### Create a loop to run the app
-    print("Welcome to the TaskTrack App! :)")
+    print("Welcome to the TaskTrack App! :) You will be able to add, delete, list, and prioritize tasks, as well as exit the app when needed. After exiting, the choices will no longer appear, and the current data will not be saved, so please keep that in mind. The overall goal is to help users with their productivity.")
     while True:
         print("\n")
         print("Please select one of the following options")
