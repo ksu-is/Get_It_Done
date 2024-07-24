@@ -28,7 +28,8 @@ def listTasks():
     else:
         print("Current tasks:")    
         for index, task in enumerate(tasks):
-            print(f"Task #{index}. {task['task']} (Priority: {task['priority']}, Category: {task['category']})")
+            status = "Completed" if task["completed"] else "Pending"
+            print(f"Task #{index}. {task['task']} (Priority: {task['priority']}, Category: {task['category']}, Status: {status})")
 
 
 def prioritizeTask():
