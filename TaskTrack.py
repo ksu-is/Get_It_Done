@@ -45,6 +45,25 @@ def prioritizeTask():
         print("Inavlid input.")
 
 
+def sortTasks():
+    listTasks()
+    try:
+        sort_choice = input("Sort by (1. Priority, 2. Category): ")
+        if sort_choice == "1":
+            tasks.sort(key=lambda x: x["priority"])
+            print("Tasks sorted by priority:")
+            listTasks()
+        elif sort_choice == "2":
+            tasks.sort(key=lambda x: x["category"])
+            print("Tasks sorted by category:")
+            listTasks()
+        else:
+            print("Invalid choice.")
+    except ValueError:
+        print("Invalid input.")
+
+
+
         
 if __name__ == "__main__":
     ### Create a loop to run the app
