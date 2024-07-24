@@ -4,8 +4,9 @@ tasks = []
 def addTask():
     task= input("Please enter a task: ")
     priority = input("Please enter a priority (1 for high, 2 for medium, 3 for low): ")
-    tasks.append((task, priority))
-    print(f"Task '{task}' with priority {priority} added to the list.")
+    category = input("Please enter a category or label for the task: ")
+    tasks.append({"task": task, "priority": priority, "category": category})
+    print(f"Task '{task}' with priority {priority} and category '{category}' added to the list.")
 
 
 def deleteTask():
@@ -26,8 +27,8 @@ def listTasks():
         print("There are no tasks currently.")  
     else:
         print("Current tasks:")    
-        for index, (task, priority) in enumerate(tasks):
-            print(f"Task #{index}. {task} (Priority: {priority})")
+        for index, task in enumerate(tasks):
+            print(f"Task #{index}. {task['task']} (Priority: {task['priority']}, Category: {task['category']})")
 
 
 def prioritizeTask():
