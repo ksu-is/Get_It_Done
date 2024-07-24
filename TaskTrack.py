@@ -69,7 +69,7 @@ def markTaskCompleted():
     listTasks()
     try:
         taskToComplete = int(input("Enter the number of the task to mark as completed: "))
-        if 0 <= taskToComplete < len(tasks):
+        if  taskToComplete >=0 and taskToComplete < len(tasks):
             tasks[taskToComplete]["completed"] = True
             print(f"Task #{taskToComplete} marked as completed.")
         else:
