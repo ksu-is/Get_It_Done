@@ -64,8 +64,20 @@ def sortTasks():
         print("Invalid input.")
 
 
-
+def markTaskCompleted():
+    listTasks()
+    try:
+        taskToComplete = int(input("Enter the number of the task to mark as completed: "))
+        if 0 <= taskToComplete < len(tasks):
+            tasks[taskToComplete]["completed"] = True
+            print(f"Task #{taskToComplete} marked as completed.")
+        else:
+            print(f"Task #{taskToComplete} was not found")
+    except ValueError:
+        print("Invalid input.")
         
+
+
 if __name__ == "__main__":
     ### Create a loop to run the app
     print("Welcome to the TaskTrack App! :) You will be able to add, delete, list, and prioritize tasks, as well as exit the app when needed. After exiting, the choices will no longer appear, and the current data will not be saved, so please keep that in mind. The overall goal is to help users with their productivity.")
