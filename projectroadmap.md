@@ -22,6 +22,6 @@
 - [x] Upload the PowerPoint slide on D2L and GitHub
 
 ## Final Presentation 
-- [] Schedule a meeting in Microsoft Teams
-- [] Present project on Microsoft Teams
+- [x] Schedule a meeting in Microsoft Teams
+- [x] Present project on Microsoft Teams
   
