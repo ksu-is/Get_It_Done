@@ -38,13 +38,14 @@ def prioritizeTask():
         taskToPrioritize = int(input("Enter the number of the task to prioritize: "))
         if taskToPrioritize >=0 and taskToPrioritize < len(tasks):
             new_priority = input("Enter new priority (1 for high, 2 for medium, 3 for low): ")
-            task, _ = tasks[taskToPrioritize]
-            tasks[taskToPrioritize] = (task, new_priority)
+            tasks[taskToPrioritize]["priority"] = new_priority
             print(f"Task #{taskToPrioritize} priority updated to {new_priority}.")
         else:
-            print(f"Task #{taskToPrioritize} was not found")    
-    except: 
-        print("Inavlid input.")
+            print(f"Task #{taskToPrioritize} was not found")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+    except IndexError:
+        print("Invalid task number.")
 
 
 def sortTasks():
