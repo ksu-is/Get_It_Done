@@ -1,9 +1,12 @@
-tasks = []
 
 import tkinter as tk
 from tkinter import messagebox, simpledialog, ttk
 import json
 import os
+
+tasks = []
+theme_color = "#eed9c4"  # Default beige
+
 
 def showMotivationalPopup():
     import random
@@ -15,6 +18,20 @@ def showMotivationalPopup():
         "🔥 Stay focused! You’re closer than you think."
     ]
     messagebox.showinfo("Motivation", random.choice(messages))
+
+def saveTasks():
+    with open("tasks.json", "w") as f:
+        json.dump(tasks, f)
+    messagebox.showinfo("Save Tasks", "Tasks saved successfully!")
+
+def loadTasks():
+    global tasks
+    if os.path.exists("tasks.json"):
+        with open("tasks.json", "r") as f:
+            tasks = json.load(f)
+        refreshTaskList()
+        messagebox.showinfo("Load Tasks", "Tasks loaded successfully!")
+
 def addTask():
     task_text = simpledialog.askstring("Add Task", "Enter the task:")
     if task_text:
@@ -66,7 +83,7 @@ def setTheme():
             widget.config(bg=theme_color)
 
 app = tk.Tk()
-app.title("TaskTrack - Get It Done!!")
+app.title("Get It Done!!")
 app.geometry("400x400")
 
 main_frame = tk.Frame(app, bg=theme_color)
