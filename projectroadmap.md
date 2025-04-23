@@ -10,12 +10,12 @@
 - [x] Turn in Sprint #1 on D2L
 
 ## Sprint 2: 
-- [] Create a .py file for code
-- [] Find progress bar repository and combine
-- [] Find motivational quote repository and combine
+- [x] Create a .py file for code
+- [x] Find progress bar repository and combine
+- [x] Find motivational quote repository and combine
 - [] Make small updates and add commit messages through GitHub Desktop
 - [] Committed at least 6 code changes of significant size with explanation given
-- [] Track progress on planned and emerging tasks in the projectroadmap.md document
+- [x] Track progress on planned and emerging tasks in the projectroadmap.md document
 - [] Turn in Sprint #2 on D2L
 
 ## Sprint 3:
