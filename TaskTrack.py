@@ -1,117 +1,82 @@
 tasks = []
 
+import tkinter as tk
+from tkinter import messagebox, simpledialog, ttk
+import json
+import os
 
 def addTask():
-    task= input("Please enter a task: ")
-    priority = input("Please enter a priority (1 for high, 2 for medium, 3 for low): ")
-    category = input("Please enter a category or label for the task: ")
-    tasks.append({"task": task, "priority": priority, "category": category, "completed": False})
-    print(f"Task '{task}' with priority {priority} and category '{category}' added to the list.")
+    task_text = simpledialog.askstring("Add Task", "Enter the task:")
+    if task_text:
+        tasks.append({"task": task_text, "completed": False})
+        refreshTaskList()
+    task_text = simpledialog.askstring("Add Task", "Enter the task:")
+    if task_text:
+        tasks.append({"task": task_text, "completed": False})
+        refreshTaskList()
 
+def markCompleted():
+    selected = task_listbox.curselection()
+    if selected:
+        index = selected[0]
+        tasks[index]["completed"] = True
+        refreshTaskList()
+        showMotivationalPopup()
+    selected = task_listbox.curselection()
+    if selected:
+        index = selected[0]
+        tasks[index]["completed"] = True
+        refreshTaskList()
+    selected = task_listbox.curselection()
+    if selected:
+        index = selected[0]
+        tasks[index]["completed"] = True
+        refreshTaskList()
 
-def deleteTask():
-    listTasks()
-    try:
-        taskToDelete = int(input("Enter the number to delete: "))
-        if taskToDelete >=0 and taskToDelete < len(tasks):
-            tasks.pop(taskToDelete)
-            print(f"Task {taskToDelete} has been removed.")
-        else: 
-            print(f"Task #{taskToDelete} was not found")
-    except:
-        print("Invalid input.")
+def refreshTaskList():
+    task_listbox.delete(0, tk.END)
+    for task in tasks:
+        status = "✅" if task["completed"] else "❌"
+        task_listbox.insert(tk.END, f"{status} {task['task']}")
+    updateProgress()
 
+def updateProgress():
+    total = len(tasks)
+    completed = sum(1 for t in tasks if t["completed"])
+    percent = (completed / total) * 100 if total > 0 else 0
+    progress_var.set(f"Progress: {completed}/{total} ({percent:.1f}%)")
 
-def listTasks():
-    if not tasks:
-        print("There are no tasks currently.")  
-    else:
-        print("Current tasks:")    
-        for index, task in enumerate(tasks):
-            status = "Completed" if task["completed"] else "Pending"
-            print(f"Task #{index}. {task['task']} (Priority: {task['priority']}, Category: {task['category']}, Status: {status})")
+def setTheme():
+    global theme_color
+    color = simpledialog.askstring("Set Theme", "Enter color hex (e.g., #1f77b4 for blue):")
+    if color:
+        theme_color = color
+        main_frame.config(bg=theme_color)
+        for widget in main_frame.winfo_children():
+            widget.config(bg=theme_color)
 
+app = tk.Tk()
+app.title("TaskTrack - Get It Done!!")
+app.geometry("400x400")
 
-def prioritizeTask():
-    listTasks()
-    try:
-        taskToPrioritize = int(input("Enter the number of the task to prioritize: "))
-        if taskToPrioritize >=0 and taskToPrioritize < len(tasks):
-            new_priority = input("Enter new priority (1 for high, 2 for medium, 3 for low): ")
-            tasks[taskToPrioritize]["priority"] = new_priority
-            print(f"Task #{taskToPrioritize} priority updated to {new_priority}.")
-        else:
-            print(f"Task #{taskToPrioritize} was not found")
-    except ValueError:
-        print("Invalid input. Please enter a number.")
-    except IndexError:
-        print("Invalid task number.")
+main_frame = tk.Frame(app, bg=theme_color)
+main_frame.pack(fill="both", expand=True)
 
+task_listbox = tk.Listbox(main_frame, width=50)
+task_listbox.pack(pady=10)
 
-def sortTasks():
-    listTasks()
-    try:
-        sort_choice = input("Sort by (1. Priority, 2. Category): ")
-        if sort_choice == "1":
-            tasks.sort(key=lambda x: x["priority"])
-            print("Tasks sorted by priority:")
-            listTasks()
-        elif sort_choice == "2":
-            tasks.sort(key=lambda x: x["category"])
-            print("Tasks sorted by category:")
-            listTasks()
-        else:
-            print("Invalid choice.")
-    except:
-        print("Invalid input.")
+progress_var = tk.StringVar()
+progress_label = tk.Label(main_frame, textvariable=progress_var, bg=theme_color, fg="white")
+progress_label.pack()
 
+button_frame = tk.Frame(main_frame, bg=theme_color)
+button_frame.pack(pady=10)
 
-def markTaskCompleted():
-    listTasks()
-    try:
-        taskToComplete = int(input("Enter the number of the task to mark as completed: "))
-        if  taskToComplete >=0 and taskToComplete < len(tasks):
-            tasks[taskToComplete]["completed"] = True
-            print(f"Task #{taskToComplete} marked as completed.")
-        else:
-            print(f"Task #{taskToComplete} was not found")
-    except:
-        print("Invalid input.")
-        
+tk.Button(button_frame, text="Add Task", command=addTask).grid(row=0, column=0, padx=5)
+tk.Button(button_frame, text="Mark Completed", command=markCompleted).grid(row=0, column=1, padx=5)
+tk.Button(button_frame, text="Save", command=saveTasks).grid(row=1, column=0, padx=5, pady=5)
+tk.Button(button_frame, text="Load", command=loadTasks).grid(row=1, column=1, padx=5, pady=5)
+tk.Button(button_frame, text="Set Theme", command=setTheme).grid(row=2, column=0, columnspan=2, pady=5)
 
-
-if __name__ == "__main__":
-    ### Create a loop to run the app
-    print("Welcome to the TaskTrack App! :) You will be able to add, delete, list, prioritize tasks, sort tasks, mark tasks as completed, as well as exit the app when needed. After exiting, the choices will no longer appear, and the current data will not be saved, so please keep that in mind. The overall goal is to help users with their productivity.")
-    while True:
-        print("\n")
-        print("Please select one of the following options")
-        print("------------------------------------------")
-        print("1. Add a new task")
-        print("2. Delete a task")
-        print("3. List tasks")
-        print("4. Prioritize task(s)")
-        print("5. Sort tasks")
-        print("6. Mark task as completed")
-        print("7. Quit")
-
-        choice = input("Enter your choice: ")
-        
-        if(choice=="1"):
-            addTask()
-        elif(choice=="2"):
-            deleteTask()
-        elif(choice=="3"):
-            listTasks()
-        elif(choice=="4"):
-            prioritizeTask()
-        elif(choice=="5"):
-            sortTasks()
-        elif(choice=="6"):
-            markTaskCompleted()
-        elif(choice=="7"):
-            break
-        else:
-            print("Invalid input. Please try again.")
-
-    print("Goodbye! :)")
+loadTasks()
+app.mainloop()
