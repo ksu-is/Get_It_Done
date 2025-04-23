@@ -1,4 +1,4 @@
-#TaskTrack Project Roadmap
+#Get_It_Done!! Project Roadmap
 
 ## Sprint 1:
 - [x] Confirm a project idea
@@ -11,17 +11,19 @@
 
 ## Sprint 2: 
 - [x] Create a .py file for code
+- [x] Find progress bar repository and combine
+- [x] Find motivational quote repository and combine
 - [x] Make small updates and add commit messages through GitHub Desktop
 - [x] Committed at least 6 code changes of significant size with explanation given
 - [x] Track progress on planned and emerging tasks in the projectroadmap.md document
 - [x] Turn in Sprint #2 on D2L
 
 ## Sprint 3:
-- [x] Further coding, refining, and testing
-- [x] Create one slide PowerPoint introducing your project
-- [x] Upload the PowerPoint slide on D2L and GitHub
+- [] Further coding, refining, and testing
+- [] Create one slide PowerPoint introducing your project
+- [] Upload the PowerPoint slide on D2L and GitHub
 
 ## Final Presentation 
-- [x] Schedule a meeting in Microsoft Teams
-- [x] Present project on Microsoft Teams
+- [] Schedule a meeting in Microsoft Teams
+- [] Present project on Microsoft Teams
   
