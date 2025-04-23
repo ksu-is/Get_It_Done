@@ -10,3 +10,7 @@ Check off
 > COMING SOON
 
 Reference: https://youtu.be/aEIHZDv_23U?si=1Wd_ro8uOt9_Zm0m
+           https://github.com/siwhelan/taskManagerGUI
+           https://github.com/pralabhsaxena05/To-Do-List
+           https://www.youtube.com/watch?v=8qUJ9a_3zSQ
+           https://www.youtube.com/watch?v=xB68I2fMAuU
