@@ -5,6 +5,16 @@ from tkinter import messagebox, simpledialog, ttk
 import json
 import os
 
+def showMotivationalPopup():
+    import random
+    messages = [
+        "💪 Keep going, you're doing great!",
+        "🚀 Almost there—don’t quit now!",
+        "🌟 Progress is progress, no matter how small!",
+        "🌈 Take a deep breath—you’ve got this!",
+        "🔥 Stay focused! You’re closer than you think."
+    ]
+    messagebox.showinfo("Motivation", random.choice(messages))
 def addTask():
     task_text = simpledialog.askstring("Add Task", "Enter the task:")
     if task_text:
