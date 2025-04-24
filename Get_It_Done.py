@@ -5,7 +5,7 @@ import json
 import os
 
 tasks = []
-theme_color = "#eed9c4"  # Default beige
+theme_color = "#c38091"  # Default khaki
 
 
 def showMotivationalPopup():
@@ -93,7 +93,7 @@ task_listbox = tk.Listbox(main_frame, width=50)
 task_listbox.pack(pady=10)
 
 progress_var = tk.StringVar()
-progress_label = tk.Label(main_frame, textvariable=progress_var, bg=theme_color, fg="white")
+progress_label = tk.Label(main_frame, textvariable=progress_var, bg=theme_color, fg="black")
 progress_label.pack()
 
 button_frame = tk.Frame(main_frame, bg=theme_color)
