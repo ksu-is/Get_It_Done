@@ -19,8 +19,8 @@
 - [x] Turn in Sprint #2 on D2L
 
 ## Sprint 3:
-- [] Further coding, refining, and testing
-- [] Create one slide PowerPoint introducing your project
+- [x] Further coding, refining, and testing
+- [x] Create one slide PowerPoint introducing your project
 - [] Upload the PowerPoint slide on D2L and GitHub
 
 ## Final Presentation 
