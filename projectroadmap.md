@@ -21,7 +21,7 @@
 ## Sprint 3:
 - [x] Further coding, refining, and testing
 - [x] Create one slide PowerPoint introducing your project
-- [] Upload the PowerPoint slide on D2L and GitHub
+- [x] Upload the PowerPoint slide on D2L and GitHub
 
 ## Final Presentation 
 - [] Schedule a meeting in Microsoft Teams
