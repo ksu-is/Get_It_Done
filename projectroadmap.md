@@ -22,6 +22,7 @@
 - [x] Further coding, refining, and testing
 - [x] Create one slide PowerPoint introducing your project
 - [x] Upload the PowerPoint slide on D2L and GitHub
+- [x] Fix file file issues on GitHub
 
 ## Final Presentation 
 - [] Schedule a meeting in Microsoft Teams
