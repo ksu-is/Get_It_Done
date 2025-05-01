@@ -25,6 +25,6 @@
 - [x] Fix file file issues on GitHub
 
 ## Final Presentation 
-- [] Schedule a meeting in Microsoft Teams
+- [x] Schedule a meeting in Microsoft Teams
 - [] Present project on Microsoft Teams
   
