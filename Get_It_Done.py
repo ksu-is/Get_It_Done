@@ -30,7 +30,8 @@ def loadTasks():
         with open("tasks.json", "r") as f:
             tasks = json.load(f)
         refreshTaskList()
-        messagebox.showinfo("Load Tasks", "Tasks loaded successfully!")
+        if tasks:
+            messagebox.showinfo("Load Tasks", "Tasks loaded successfully!")
 
 def addTask():
     task_text = simpledialog.askstring("Add Task", "Enter the task:")
