@@ -83,13 +83,38 @@ def updateProgress():
     progress_var.set(f"Progress: {completed}/{total} ({percent:.1f}%)")
 
 def setTheme():
-    global theme_color
-    color = simpledialog.askstring("Set Theme", "Enter color hex (e.g., #1f77b4 for blue):")
-    if color:
-        theme_color = color
+    theme_options = {
+        "Default Pink": "#c38091",
+        "Sky Blue": "#87ceeb",
+        "Mint Green": "#98ff98",
+        "Light Gray": "#d3d3d3",
+        "Lavender": "#e6e6fa"
+    }
+
+    def apply_selected_theme(selection):
+        global theme_color
+        theme_color = theme_options[selection]
         main_frame.config(bg=theme_color)
         for widget in main_frame.winfo_children():
             widget.config(bg=theme_color)
+        for widget in button_frame.winfo_children():
+            widget.config(bg=theme_color)
+
+    # Prompt user with a dropdown
+    theme_window = tk.Toplevel(app)
+    theme_window.title("Choose Theme")
+    tk.Label(theme_window, text="Select a Theme:").pack(pady=5)
+    selected_theme = tk.StringVar(theme_window)
+    selected_theme.set("Default Pink")
+    theme_menu = ttk.Combobox(theme_window, textvariable=selected_theme, values=list(theme_options.keys()))
+    theme_menu.pack(pady=5)
+
+    def confirm():
+        apply_selected_theme(selected_theme.get())
+        theme_window.destroy()
+
+    tk.Button(theme_window, text="Apply Theme", command=confirm).pack(pady=10)
+
 
 app = tk.Tk()
 app.title("Get It Done!!")
