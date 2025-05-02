@@ -60,6 +60,15 @@ def markCompleted():
         tasks[index]["completed"] = True
         refreshTaskList()
 
+def unloadTask():
+    selected = task_listbox.curselection()
+    if selected:
+        index = selected[0]
+        confirm = messagebox.askyesno("Unload Task", f"Are you sure you want to delete: '{tasks[index]['task']}'?")
+        if confirm:
+            tasks.pop(index)
+            refreshTaskList()
+
 def refreshTaskList():
     task_listbox.delete(0, tk.END)
     for task in tasks:
@@ -100,10 +109,11 @@ button_frame = tk.Frame(main_frame, bg=theme_color)
 button_frame.pack(pady=10)
 
 tk.Button(button_frame, text="Add Task", command=addTask).grid(row=0, column=0, padx=5)
-tk.Button(button_frame, text="Mark Completed", command=markCompleted).grid(row=0, column=1, padx=5)
-tk.Button(button_frame, text="Save", command=saveTasks).grid(row=1, column=0, padx=5, pady=5)
-tk.Button(button_frame, text="Load", command=loadTasks).grid(row=1, column=1, padx=5, pady=5)
-tk.Button(button_frame, text="Set Theme", command=setTheme).grid(row=2, column=0, columnspan=2, pady=5)
+tk.Button(button_frame, text="Mark Completed", command=markCompleted).grid(row=2, column=1, padx=5, pady=5)
+tk.Button(button_frame, text="Unload Task", command=unloadTask).grid(row=1, column=2, padx=5)
+tk.Button(button_frame, text="Save", command=saveTasks).grid(row=0, column=1, padx=5)
+tk.Button(button_frame, text="Load", command=loadTasks).grid(row=1, column=0, padx=5, pady=5)
+tk.Button(button_frame, text="Set Theme", command=setTheme).grid(row=0, column=2, columnspan=2, pady=5)
 
 loadTasks()
 app.mainloop()
